@@ -5,7 +5,7 @@ The slides may be found [here](https://github.com/cspotz/ramses-tutorials/tree/m
 A (working) google collab version can be found [here](https://colab.research.google.com/drive/1ktrkdsTkbjnvwFCGzPxvVOl5n6l2nUkY?usp=sharing). Your first task will be to port it to your laptop, and them to a cluster facility.
 
 ## Initial condition generation 
-To generate initial condition, we will use [monofonic](https://bitbucket.org/ohahn/monofonic/src/master/). An older alternative may be [MUSIC](https://www-n.oca.eu/ohahn/MUSIC/). They requires FFTW3, GSL, as well as a CMake build system and a reasonably new C++14 compliant compiler. In order to install them, some usefull information may be found in the the [manual](https://bitbucket.org/ohahn/monofonic/wiki/Home).
+To generate initial condition, we will use [monofonic](https://bitbucket.org/ohahn/monofonic/src/master/). An older alternative may be [MUSIC](https://www-n.oca.eu/ohahn/MUSIC/). They require FFTW3, GSL, as well as a CMake build system and a reasonably new C++14 compliant compiler. In order to install them, some usefull information may be found in the the [manual](https://bitbucket.org/ohahn/monofonic/wiki/Home).
 Once this step performed, it should be possible to install monofonic doing  
    ```
    git clone https://bitbucket.org/ohahn/monofonic.git
