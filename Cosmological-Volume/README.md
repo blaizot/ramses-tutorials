@@ -1,7 +1,7 @@
 # Cosmological Volume Tutorial
 
 This tutorial will take you through the generation of a large-scale cosmological simulation.
-The slides may be found [here](./TUTO.pdf)
+The slides may be found [here](https://github.com/cspotz/ramses-tutorials/tree/main/Cosmological-Volume/Slides/TUTO.pdf)
 A (working) google collab version can be found [here](https://colab.research.google.com/drive/1ktrkdsTkbjnvwFCGzPxvVOl5n6l2nUkY?usp=sharing). Your first task will be to port it to your laptop, and them to a cluster facility.
 
 ## Initial condition generation 
