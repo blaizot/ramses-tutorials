@@ -11,7 +11,7 @@ verbose=.false.
 /
 
 &AMR_PARAMS
-levelmin=6
+levelmin=7
 levelmax=12
 nexpand=1
 ngridmax=2000000
@@ -20,7 +20,7 @@ npartmax=3000000
 
 &INIT_PARAMS
 filetype='grafic'
-initfile(1)='../monofonic/ics_ramses/'
+initfile(1)='../monofonic_file/ics_ramses/level_007'
 /
 
 &OUTPUT_PARAMS
