@@ -33,6 +33,6 @@ interpol_type=0
 
 
 &OUTPUT_PARAMS
-aout=1.0
-noutput=1
+aout=0.5, 1.0
+noutput=2
 /
