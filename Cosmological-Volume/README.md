@@ -1,39 +1,87 @@
-# Cosmological Volume Tutorial
-
-This tutorial will take you through the generation of a large-scale cosmological simulation and some analysis of its outputs. The are 5 steps in the tutorial.
-1. Install pre-requisites;
-2. Generate initial conditions;
-3. Run the cosmological simulation with RAMSES;
-4. Analyse the outpiuts;
-5. Experiment with different options in RAMSES. 
-
-## 1. Pre-requisites
-**JB: I use MUSIC and postpone using monofonic to later when i can compile it... The aim will be to produce a conda environment where everything works smoothly.**
-
-In this tutorial we are going to use a number of third-party tools that must be installed before we start. Follow the steps below. 
-
-### MUSIC / MONOFONIC
+In this tutorial we are going to use a number of third-party tools that must be installed before we start. We describe the steps to follow here. Once everything is installed, you can start the tutorial by opening the python notebook `tutorial.ipynb`. 
 
 
+If you are not familiar with the installation of packages, you may skip to [Section 2](#2-installation-with-conda) where we provide instructions to install a working environment with conda. If you are familiar with the installation of packages, you should follow the steps outlined in [Section 1](#1-expert-mode). 
+
+The compilation of RAMSES and the definition of useful environment variables are covered in [Section 3](#3-setting-up-ramses). 
+
+
+
+
+# 1. Expert mode 
+
+## compilers
+
+We will need a **fortran compiler** for RAMSES, and a **C++ and C compiler** for some third-party tools (MUSIC, monophonic). We will also need some MPI version if you have access to multiple cores. Monophonic also requires `CMAKE`.
+
+We recommend installing recent versions of `gcc` (incl. `gfortran`) and `openmpi`. 
+
+## python
+
+The tutorial requires running `python3` in a `Jupyter notebook`. 
+
+We will use a the following python packages: 
+```
+numpy, astropy, matplotlib, yt, yt_astro_analysis, colossus
+```
+
+## MUSIC / MONOFONIC
 
 To generate initial condition, we will use either [monofonic](https://bitbucket.org/ohahn/monofonic/src/master/) or [MUSIC](https://www-n.oca.eu/ohahn/MUSIC/). Use `monofonic` if you are interested only in large-scale volumes, and use `MUSIC` if you anticipate you will run zoom-in simulations later. 
 
-Both codes require FFTW3, GSL, CMake, and a reasonably recent C++14 compliant compiler. 
-
-Follow the detailed installation guide by for [monofonic](https://bitbucket.org/ohahn/monofonic/wiki/Home) or [MUSIC](h).
-Once this step performed, it should be possible to install monofonic doing  
+Both codes require FFTW3, GSL, CMake, and a reasonably recent C++14 compliant compiler. Once these are installed, it should be possible to install monofonic or MUSIC doing: 
    ```
    git clone https://bitbucket.org/ohahn/monofonic.git
    mkdir monofonic/build; cd monofonic/build
    cmake ..
    make
    ```
-leading to an executable.
+or 
+   ```
+   git clone https://bitbucket.org/ohahn/music.git
+   mkdir music/build; cd music/build
+   cmake ..
+   make
+   ```
 
-### python packages
-Colossus, yt, 
 
-### RAMSES 
+
+
+# 2. Installation with conda
+
+**This is mostly copy/paste from RASCAS ... will be updated later...**
+
+Conda is available for Windows, Linux, and macOS.
+
+Install miniconda following the installation guide, or if you already have a version of conda installed, make sure to have an up-to-date version by running the following command in a terminal.
+
+```
+conda update -n base conda
+```
+
+Download the environment file rascas-environment.yml
+
+Create the environment from the rascas-environment.yml file by executing the command below in a terminal.
+
+```
+conda env create -f rascas-environment.yml
+```
+
+Activate the new environment by executing the command below in a terminal.
+
+```
+conda activate rascas-env
+```
+
+Verify that the new environment was installed correctly with
+
+```
+conda env list
+```
+
+# 3. Setting up RAMSES
+
+## RAMSES 
 We will use [RAMSES](https://github.com/ramses-organisation/ramses) that needs a fortran compiler. It may be installed by running the following commands in a terminal
    ```
    git clone https://github.com/ramses-organisation/ramses.git
@@ -48,27 +96,10 @@ Within this tutorial, it helps to set an environment variable that points to the
 export RAMSESDIR=/path/to/your/ramses
 ```
 
-## 2. Initial condition generation 
 
-We now  can be use it generate initial condition using for instance the file [monofonic.conf](./monofonic.conf):
-   ```
-   ./build/monofonIC /monofonic.conf
-   ```
- At that stage, initial condition files of the type `ics_ramses/level_007/ic_posx` should have been generated.
+NB: here we should define a number of environement variables, for example:
+```
+export MUSICDIR=/path/to/MUSIC/
+export RAMSESDIR=/path/to/ramses/
+```
 
-## 3. RAMSES simulation (non-linear evolution)
-We will now use RAMSES to solve the non-linear Poisson equation. RAMSES uses a parameter file, for instance the file [ramses.nml](./ramses.nml). To run, type:
-  ```
-  bin/ramses3d namelist/ramses.nml 
-  ```
-  or, if you compiled with MPI: 
-  ```
-  mpirun -np 5 $RAMSESDIR/bin/ramses3d namelist/ramses.nml
-  ```
-At that stage, the simulation should be finished and folders of the type `output_00002` should have been generated.
-## 4. Data analysis out the output generated:
-We will work in python and use (among others) [Pylians](https://pylians3.readthedocs.io/en/master/index.html) and [yt](https://yt-project.org/), to install them, some usefull information may be found  [here](https://pylians3.readthedocs.io/en/master/installation.html) and [here](https://yt-project.org/doc/installing.html).
-We will now follow this  [notebook](./cosmology_ramses.ipynb) to analyse the data produced by the simulation.
-
-
-## 5. More fun. 
