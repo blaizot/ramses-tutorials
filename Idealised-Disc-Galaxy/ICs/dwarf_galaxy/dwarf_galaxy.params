@@ -1,0 +1,235 @@
+###################
+# Global parameters
+###################
+# Virial velocity of the galaxy [km/s]
+v200 				70.0
+# Virial mass of the galaxy
+# Overrides the v200 parameter
+m200				0.
+# Halo spin parameter
+lambda		 	        0.04
+# Refinement level of the potential grid 
+level_coarse		    	7
+# Refinement level of the plane plane density grid 
+level_grid_mid_dens		7
+# Refinement level of the turbulence grid 
+level_grid_turb		    	7
+# Refinement level of the gaussian field grid
+level_grid_dens_fluct 		7
+# Size of the potential grid [kpc]
+boxsize1			100.0
+boxsize2	 	        14.0
+boxsize3	 	        5.0
+# Dispersion for the Gaussian field fluctuations
+dens_fluct_sigma        	0.50
+# Physical injection scale of the random field fluctuations [kpc]
+dens_fluct_scale_inj        	2.00
+# Physical dissipation scale of the random field fluctuations [kpc]
+dens_fluct_scale_diss        	0.25
+dens_fluct_seed		    	1212
+# Seed for the random number generator
+seed			        1246
+# Switch to MCMC ntry algorithm to position particles for a value > 1
+mcmc_ntry		        1
+# Number of iterations to reach hydrostatic equilibrium (zero to deactivate)
+hydro_eq_niter			3
+
+
+#######################
+# Components parameters
+#######################
+
+#######################
+# Component 1: Halo
+#######################
+# Fraction of the virial mass in the component 1
+mass_frac1		        0.95
+# Number of particles for the component 1
+npart1			        0
+# Target mass of individual particles [Msol]
+part_mass1			2e6
+# Number of particles for the potential computation
+npart_pot1              	0
+# Target mass of individual particles for potential computation [Msol]
+part_mass_pot1			1e6
+# Component 1 density model
+# Available models:
+# 1  = Exponential disk + sech-z profile
+# 2  = Myamoto-Nagai profile
+# 3  = Exponential disk + exponential-z profile
+# 4  = Hernquist profile
+# 5  = Plummer profile
+# 6  = Jaffe profile
+# 7  = Isothermal profile
+# 8  = NFW profile 
+# 9  = Burkert
+# 10 = Einasto profile
+# 11 = Mestel profile
+# 12 = Kalnajs profile
+# 13 = Sersic profile
+# 14 = Toomre-Kuzmin profile
+# 15 = Uniform profile
+# 16 = Pseudo-isothermal profile
+model1			        8
+# Scale length of the density profile [kpc]
+scale_length1		    	1.
+# Core radius in the density profile [kpc]
+rcore1				0.
+# Concentration parameter
+# if positive, the scale length is recomputed to match the concentration
+# the concentration parameter of an NFW halo with a mass M200*mass_frac
+concentration1		    	13.0
+# Gravitational softening for the poisson solver [kpc]
+softening1                      0.6
+# Component 1 radial density cut [kpc] 
+cut1			        0.
+# Component 1 thickness parameters
+flatx1			        1.00
+flaty1			        1.00
+flatz1			        1.00
+# Gaussian step for the MCMC Metropolis-Hasting particle postionning algorithm,
+# expressed in units of the component scale length. Default value is 0.5.
+mcmc_step1		        0.50
+# Maximum velocity for the component 1 particles in expressed in units of escape velocity
+vmax_esc1		        5.0
+# Particles type (GADGET format -- 0=Gas,1=Halo,2=Disk,3=Bulge,4=Stars)
+type1			        1
+# Streaming fraction of the component 1
+stream_fraction1	    	0.00
+# Radius at which the density profile should have the exact same
+# value as the NFW profile with the previously defined concentration
+# and with a mass M200*mass_frac [kpc]
+radius_nfw1		        1.0
+# Cut the density function in the Jeans equation integration
+jeans_mass_cut1		    	1
+# Compute component velocity (debug option)
+compute_vel1		    	1
+# Number of integral of motion for the Jeans equations
+# 0 = Do not use Jeans equation for sigma_r and sigma_z
+# 1 = Spherically symmetric Jeans equation
+# 2 = Jeans equations with 2 integrals of motion
+# 3 = Jeans equations with 3 integrals of motion (solved on a 2D grid in the r-z plane)
+jeans_dim1			1
+# Method for streaming velocity computation
+# 0 =               - User defined fixed fraction of the circular velocity profile (stream_fraction keyword)
+# 1 = Bullock 2001  - Streaming velocity profile following the cumulative mass profile
+# 2 = Springel 1999 - Streaming velocity profile following is a fixed fraction of the rotation curve 
+# 3 =               - Solid Body rotation
+stream_method1			1
+# Alpha coefficient for the generalized normal distribution [Gaussian=2.0]
+# for the random generation of velocities
+ggd_beta1                       2.0
+# Minimum acceptance for the MCMC chain
+accept_min1			0.80
+# Maximum acceptance for the MCMC chain
+accept_max1			0.95
+
+################################
+# Component 2: Thin stellar disk
+################################
+mass_frac2		        0.02
+npart2			        100000
+npart_pot2              	200000
+model2			        2
+# If the value is zero and the particle type is not 1 the size is determined using the spin conservation
+# (Fitting formula from Mo, Mao & White 1998)
+scale_length2		    	0.
+cut2			        4.5
+flatz2			        0.15
+mcmc_step2		        0.3
+type2			        2
+stream_fraction2	    	1.00
+# Epicycle approximation in the Jeans equations
+epicycle2		        1
+# Minimal value for the Toomre parameter
+Q_lim2			        1.25
+# Fixed value for the Toomre parameter
+Q_fixed2			0.0
+# Additional term for the Toomre parameter
+Q_boost2		        0.0
+# Past constant Star Formation Rate [Msol/yr]
+# Negative value recomptes the SFR according to Bouché et al. 2010
+SFR2               	    	-1.
+# Minimum age of the stars [Myr]
+min_age2                	0.
+# Metallicity of the stars [Zsolar]
+metal2                  	0.01
+# Gaussian fluctuations in the density field
+dens_fluct2		        0
+# Use the density cut during the Jeans equation integration
+jeans_mass_cut2		    	1
+compute_vel2		    	1
+
+###########################
+# Component 3: Gaseous disk
+###########################
+mass_frac3		        0.01
+npart3			        100000
+npart_pot3              	300000
+model3			        1
+scale_length3		    	0.
+cut3			        4.5
+flatz3			        0.25
+mcmc_step3		        0.15
+type3			        0
+stream_fraction3	    	1.00
+metal3                  	0.01
+# Metallicity follows density gradient
+metal_gradient3		    	1
+# Temperature of the gas particles [K]
+t_init3                 	1e5
+# Turbulent velocity dispersion [km/s]
+turb_sigma3		        0.0
+# Turbulence injection scale [kpc]
+turb_scale_inj3		        1.0
+# Turbulence dissipation scale [kpc]
+turb_scale_diss3		0.01
+# Seed for the turbulent gaussian field
+turb_seed3		        1234
+# Compute hydrostatic equilibrium
+hydro_eq3			1
+# Gaussian step for the MCMC Metropolis-Hasting particle postionning algorithm
+# within the hydro equilibrium algorithm
+mcmc_step_hydro3	    	0.3
+compute_vel3		    	1
+# Polytropic index for the gas (1 = isothermal)
+gamma_poly3			1.0
+
+############################
+# Component 4: Stellar bulge
+############################
+mass_frac4		        0.005
+npart4			        10000
+npart_pot4              	20000
+model4			        10
+scale_length4		    	2.0
+cut4			        4.0
+flatz4			        0.80
+mcmc_step4		        0.3
+vmax_esc4		        2.0
+type4			        3
+stream_fraction4	    	0.5
+min_age4                	50.
+metal4                  	0.001
+# Structural parameter specific to the Einasto density profile
+alpha_struct5			0.80
+compute_vel4		    	1
+
+###############################
+# Component 5: Stellar spheroid
+###############################
+mass_frac5		        0.010
+npart5			        100000
+npart_pot5              	200000
+model5			        4
+scale_length5		    	2.0
+cut5			        6.0
+flatz5			        0.40
+mcmc_step5		        0.3
+vmax_esc5		        2.0
+type5			        2
+stream_fraction5	    	1.00
+min_age5                	50.
+metal5                  	0.001
+Q_lim5			        1.5
+compute_vel5		    	1
