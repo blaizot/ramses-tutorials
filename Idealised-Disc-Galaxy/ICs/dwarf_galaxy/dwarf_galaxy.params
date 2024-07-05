@@ -2,22 +2,22 @@
 # Global parameters
 ###################
 # Virial velocity of the galaxy [km/s]
-v200 				70.0
+v200 				0
 # Virial mass of the galaxy
 # Overrides the v200 parameter
-m200				0.
+m200				1   # 1 * 10^10 Msun
 # Halo spin parameter
 lambda		 	        0.04
 # Refinement level of the potential grid 
-level_coarse		    	7
+level_coarse		    	6
 # Refinement level of the plane plane density grid 
-level_grid_mid_dens		7
+level_grid_mid_dens		6
 # Refinement level of the turbulence grid 
-level_grid_turb		    	7
+level_grid_turb		    	6
 # Refinement level of the gaussian field grid
-level_grid_dens_fluct 		7
+level_grid_dens_fluct 		6
 # Size of the potential grid [kpc]
-boxsize1			100.0
+boxsize1			50.0
 boxsize2	 	        14.0
 boxsize3	 	        5.0
 # Dispersion for the Gaussian field fluctuations
@@ -47,11 +47,11 @@ mass_frac1		        0.95
 # Number of particles for the component 1
 npart1			        0
 # Target mass of individual particles [Msol]
-part_mass1			2e6
+part_mass1			1e5
 # Number of particles for the potential computation
 npart_pot1              	0
 # Target mass of individual particles for potential computation [Msol]
-part_mass_pot1			1e6
+part_mass_pot1			1e5
 # Component 1 density model
 # Available models:
 # 1  = Exponential disk + sech-z profile
@@ -128,13 +128,13 @@ accept_max1			0.95
 # Component 2: Thin stellar disk
 ################################
 mass_frac2		        0.02
-npart2			        100000
-npart_pot2              	200000
+npart2			        10000
+npart_pot2              	20000
 model2			        2
 # If the value is zero and the particle type is not 1 the size is determined using the spin conservation
 # (Fitting formula from Mo, Mao & White 1998)
-scale_length2		    	0.
-cut2			        4.5
+scale_length2		    	2.5
+cut2			        3.5
 flatz2			        0.15
 mcmc_step2		        0.3
 type2			        2
@@ -149,9 +149,9 @@ Q_fixed2			0.0
 Q_boost2		        0.0
 # Past constant Star Formation Rate [Msol/yr]
 # Negative value recomptes the SFR according to Bouché et al. 2010
-SFR2               	    	-1.
+SFR2               	    	0.001   #-1.
 # Minimum age of the stars [Myr]
-min_age2                	0.
+min_age2                	50.
 # Metallicity of the stars [Zsolar]
 metal2                  	0.01
 # Gaussian fluctuations in the density field
@@ -164,10 +164,10 @@ compute_vel2		    	1
 # Component 3: Gaseous disk
 ###########################
 mass_frac3		        0.01
-npart3			        100000
-npart_pot3              	300000
+npart3			        10000
+npart_pot3              	30000
 model3			        1
-scale_length3		    	0.
+scale_length3		    	4.
 cut3			        4.5
 flatz3			        0.25
 mcmc_step3		        0.15
@@ -181,7 +181,7 @@ t_init3                 	1e5
 # Turbulent velocity dispersion [km/s]
 turb_sigma3		        0.0
 # Turbulence injection scale [kpc]
-turb_scale_inj3		        1.0
+turb_scale_inj3		        0.3
 # Turbulence dissipation scale [kpc]
 turb_scale_diss3		0.01
 # Seed for the turbulent gaussian field
@@ -199,11 +199,11 @@ gamma_poly3			1.0
 # Component 4: Stellar bulge
 ############################
 mass_frac4		        0.005
-npart4			        10000
-npart_pot4              	20000
+npart4			        1000
+npart_pot4              	2000
 model4			        10
-scale_length4		    	2.0
-cut4			        4.0
+scale_length4		    	0.2
+cut4			        1.0
 flatz4			        0.80
 mcmc_step4		        0.3
 vmax_esc4		        2.0
@@ -219,11 +219,11 @@ compute_vel4		    	1
 # Component 5: Stellar spheroid
 ###############################
 mass_frac5		        0.010
-npart5			        100000
-npart_pot5              	200000
+npart5			        10000
+npart_pot5              	20000
 model5			        4
 scale_length5		    	2.0
-cut5			        6.0
+cut5			        3.0
 flatz5			        0.40
 mcmc_step5		        0.3
 vmax_esc5		        2.0
