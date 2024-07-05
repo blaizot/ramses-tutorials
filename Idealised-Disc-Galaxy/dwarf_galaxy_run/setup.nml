@@ -14,7 +14,7 @@ ncontrol=1
 
 &OUTPUT_PARAMS
 noutput=1
-tend=16.78      ! 250 Myr (using units_time)
+tout=16.78      ! 250 Myr (using units_time)
 delta_tout=0.335 ! Output every 5 Myr
 /
 
@@ -24,9 +24,9 @@ initfile(1)='../ICs/dwarf_galaxy/'
 /
 
 &AMR_PARAMS
-boxlen=100                ! 100 kpc
-levelmin=7                ! 100 kpc / 2^7  = 780 pc resolution 
-levelmax=11               ! 100 kpc / 2^11 =  49 pc resolution             
+boxlen=50                 ! 50 kpc
+levelmin=7                ! 50 kpc / 2^7  = 390 pc resolution 
+levelmax=11               ! 50 kpc / 2^11 =  25 pc resolution             
 ngridmax=200000
 npartmax=1000000
 /
@@ -60,9 +60,9 @@ z_ave=0.1           ! Initial metallicity
 /
 
 &SF_PARAMS
-n_star=3                          ! Density threshold for star formation
-eps_star=0.02                     ! Star formation efficiency (% of free-fall time)
-T2_star=10                        ! Cooling floor (in Kelvin)
+n_star=1.0                      ! Density threshold for star formation
+eps_star=0.02                   ! Star formation efficiency (% of free-fall time)
+T2_star=10                      ! Cooling floor (in Kelvin)
 /
 
 &FEEDBACK_PARAMS
@@ -82,7 +82,7 @@ riemann='hllc'
 
 &REFINE_PARAMS
 jeans_refine=10*4.
-mass_sph=1e-4
+mass_sph=1e-5
 m_refine=10*8.
 interpol_type=0
 interpol_var=1
@@ -95,7 +95,7 @@ rt_star=.false.                  ! Release radiation from stars
 sedprops_update=5
 rt_flux_scheme='glf'
 rt_courant_factor=0.8		! courant number for RT timesteps
-rt_c_fraction=0.005	        ! fraction of actual lightspeed set to RT lightspeed
+rt_c_fraction=0.001	        ! fraction of actual lightspeed set to RT lightspeed
 rt_nsubcycle=500
 rt_otsa=.true.                  ! On-the-spot approximation
 sed_dir='../../SED/bc03/'
@@ -192,20 +192,20 @@ imovout=200  ! 200 frames
 imov=1
 nw_frame=500 ! Movie frame resolution
 nh_frame=500
-levelmax_frame=11
-xcentre_frame= 50, 0., 0., 0.,  50, 0., 0., 0.
-ycentre_frame= 50, 0., 0., 0.,  50, 0., 0., 0.
-zcentre_frame= 50, 0., 0., 0.,  50, 0., 0., 0.
-deltax_frame= 50.0, 0.0,  50, 0.0
-deltay_frame= 50.0, 0.0,  50, 0.0
-deltaz_frame= 50.0, 0.0,  50, 0.0
+levelmax_frame=10
+xcentre_frame= 25, 0., 0., 0.,  25, 0., 0., 0.
+ycentre_frame= 25, 0., 0., 0.,  25, 0., 0., 0.
+zcentre_frame= 25, 0., 0., 0.,  25, 0., 0., 0.
+deltax_frame= 25.0, 0.0,  25, 0.0
+deltay_frame= 25.0, 0.0,  25, 0.0
+deltaz_frame= 25.0, 0.0,  25, 0.0
 proj_axis='zx'
 movie_vars_txt = 'dens', 'temp', 'stars'
 perspective_camera = .true.,  .true.
 shader_frame =       'square', 'square'
 dtheta_camera=       0.,        0.
 phi_camera=          0.,        0.
-focal_camera=        100.,        100.
-dist_camera=         100.,        100.
+focal_camera=        50.,        50.
+dist_camera=         50.,        50.
 /
 
