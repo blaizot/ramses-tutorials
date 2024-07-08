@@ -1,11 +1,11 @@
-In this tutorial we are going to use a number of third-party tools that must be installed before we start. We describe the steps to follow here. Once everything is installed, you can start the tutorial by opening the python notebook `tutorial.ipynb`. 
-
+In this tutorial we are going to use a number of third-party tools that must be installed before we start. 
 
 If you are not familiar with the installation of packages, you may skip to [Section 2](#2-installation-with-conda) where we provide instructions to install a working environment with conda. If you are familiar with the installation of packages, you should follow the steps outlined in [Section 1](#1-expert-mode). 
 
 The compilation of RAMSES and the definition of useful environment variables are covered in [Section 3](#3-setting-up-ramses). 
 
 
+**Once everything is installed, you can start the tutorial by opening the python notebook `tutorial.ipynb`.**
 
 
 # 1. Expert mode 
