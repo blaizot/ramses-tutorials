@@ -14,7 +14,7 @@ ncontrol=1
 
 &OUTPUT_PARAMS
 noutput=1
-tout=16.78      ! 250 Myr (using units_time)
+tout=16.78       ! 250 Myr (using units_time)
 delta_tout=0.335 ! Output every 5 Myr
 /
 
@@ -26,7 +26,7 @@ initfile(1)='../ICs/dwarf_galaxy/'
 &AMR_PARAMS
 boxlen=50                 ! 50 kpc
 levelmin=7                ! 50 kpc / 2^7  = 390 pc resolution 
-levelmax=11               ! 50 kpc / 2^11 =  25 pc resolution             
+levelmax=10               ! 50 kpc / 2^11 =  25 pc resolution             
 ngridmax=200000
 npartmax=1000000
 /
@@ -60,14 +60,14 @@ z_ave=0.1           ! Initial metallicity
 /
 
 &SF_PARAMS
-n_star=1.0                      ! Density threshold for star formation
-eps_star=0.02                   ! Star formation efficiency (% of free-fall time)
+n_star=0.5                      ! Density threshold for star formation
+eps_star=0.1                    ! Star formation efficiency (% of free-fall time)
 T2_star=10                      ! Cooling floor (in Kelvin)
 /
 
 &FEEDBACK_PARAMS
 yield=0.1                       ! SN metal yield
-eta_sn=0.1                      ! Stellar pop mass fraction that goes SN
+eta_sn=0.2                      ! Stellar pop mass fraction that goes SN
 t_sne=3.                        ! Stellar particle age at which to go SN, in Myr
 /
 
@@ -128,8 +128,8 @@ ic_id_name='ID  '             ! Name of the particle identifier datablock (Gadge
 ic_u_name='U   '              ! Name of the internal energy datablock (Gadget2 format only)
 ic_metal_name='Z   '          ! Name of the metallicity datablock (Gadget2 format only)
 ic_age_name='AGE '            ! Name of the particle age datablock (Gadget2 format only)
-IG_rho=1.0D-6                 ! Intergalactic gas density
-IG_T2=1.0D6                   ! Intergalactic gas temperature
+IG_rho=1.0D-5                 ! Intergalactic gas density
+IG_T2=1.0D5                   ! Intergalactic gas temperature
 IG_metal=1.0D-4               ! Intergalactic gas metallicity
 amr_struct=.false.            ! Reproduce the AMR structure of the Gadget2 file resulting from a ramses to gadget conversion
 gadget_scale_l=3.085677581282D21 ! Gadget file length unit

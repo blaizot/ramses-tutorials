@@ -9,7 +9,7 @@ m200				1   # 1 * 10^10 Msun
 # Halo spin parameter
 lambda		 	        0.04
 # Refinement level of the potential grid 
-level_coarse		    	6
+level_coarse		    	7
 # Refinement level of the plane plane density grid 
 level_grid_mid_dens		6
 # Refinement level of the turbulence grid 
@@ -177,11 +177,11 @@ metal3                  	0.01
 # Metallicity follows density gradient
 metal_gradient3		    	1
 # Temperature of the gas particles [K]
-t_init3                 	1e5
+t_init3                 	1e4
 # Turbulent velocity dispersion [km/s]
-turb_sigma3		        0.0
+turb_sigma3		        20.0
 # Turbulence injection scale [kpc]
-turb_scale_inj3		        0.3
+turb_scale_inj3		        3.
 # Turbulence dissipation scale [kpc]
 turb_scale_diss3		0.01
 # Seed for the turbulent gaussian field
