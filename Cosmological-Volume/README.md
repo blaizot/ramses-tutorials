@@ -12,7 +12,7 @@ The compilation of RAMSES and the definition of useful environment variables are
 
 ## compilers
 
-We will need a **fortran compiler** for RAMSES, and a **C++ and C compiler** for some third-party tools (MUSIC, monophonic). We will also need some MPI version if you have access to multiple cores. Monophonic also requires `CMAKE`.
+We will need a **fortran compiler** for RAMSES, and a **C++ and C compiler** for some third-party tools (MUSIC, monofonic). We will also need some MPI version if you have access to multiple cores. Monofonic also requires `CMAKE`.
 
 We recommend installing recent versions of `gcc` (incl. `gfortran`) and `openmpi`. 
 
