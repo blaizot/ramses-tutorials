@@ -27,3 +27,14 @@
 
 # mac stuff
 *.DS_Store
+
+# DICE ICs
+*.rz*
+*.g2
+
+# Simulations/analysis files
+**/output_*/
+**/movie*/
+*.log
+**/pngs/
+*.mp4
