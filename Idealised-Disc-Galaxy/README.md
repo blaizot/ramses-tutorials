@@ -20,7 +20,7 @@ brew list | grep fftw
 ```
 
 Then, install DICE with:
-```
+```bash
 git clone https://bitbucket.org/vperret/dice
 cd dice
 mkdir build
@@ -33,7 +33,7 @@ If you encounter any problem, please refer to the [DICE instructions for install
 
 ### **Python**: data visualisation
 First you will need to install python and several of its modules. To directly install several common modules, you can install Anaconda or Miniconda. In that case, replace `pip install module` by `conda install module` in the following.
-```
+```bash
 pip install notebook yt numpy matplotlib pandas scipy
 ```
 
@@ -41,4 +41,6 @@ We use notebooks for these tutorials (`.ipynb` extensions) to use both Python co
 To use the Notebook, you can run a cell with <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, navigate between cells with <kbd>↑</kbd> and <kbd>↓</kbd>, create new cells above (resp. below) with <kbd>A</kbd> (resp. <kbd>B</kbd>), and delete them with <kbd>D</kbd><kbd>D</kbd>
 
 ### FFMPEG: to work with images
-  ``` sudo apt install ffmpeg```
+  ```bash
+  sudo apt install ffmpeg
+  ```
