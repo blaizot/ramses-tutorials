@@ -2,16 +2,15 @@
 
 This repository contains tutorials that cover a number of applications of the RAMSES code. 
 
-Start by cloning the stable branch of the RAMSES code from the github reopository with the following command in your terminal:
+You can browse all the tutorial material [at this link](https://ramses-tutorials.readthedocs.io/en/latest). 
 
-```
-git clone https://github.com/ramses-organisation/ramses.git
-```
-
-Similarly, clone the ramses-tutorials repository:
+If you wish to run the tutorials, clone this ramses-tutorials repository:
 
 ```
 git clone https://github.com/blaizot/ramses-tutorials.git
 ```
-
-You can then follow the different tutorials. New users should start with the `Fundamentals` tutorial. 
+and start with the `Fundamentals` tutorial:
+```
+cd Fundamentals/
+jupyter-notebook tutorial.ipynb
+```
