@@ -38,3 +38,10 @@
 *.log
 **/pngs/
 *.mp4
+
+# documentation builds (will be done with readthedocs)
+**/build
+
+
+# No python notebook checkpoints
+**/.ipynb_checkpoints 
