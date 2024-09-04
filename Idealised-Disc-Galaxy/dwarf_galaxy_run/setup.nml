@@ -4,7 +4,7 @@ pic=.true.
 poisson=.true.
 hydro=.true.
 rt=.false.
-sink=.true.
+sink=.false.
 clumpfind=.false.
 nrestart=0
 nremap=10
@@ -14,7 +14,7 @@ ncontrol=1
 
 &OUTPUT_PARAMS
 noutput=1
-tout=16.78       ! 250 Myr (using units_time)
+tout=16.78      ! 250 Myr (using units_time)
 delta_tout=0.335 ! Output every 5 Myr
 /
 
@@ -26,7 +26,7 @@ initfile(1)='../ICs/dwarf_galaxy/'
 &AMR_PARAMS
 boxlen=50                 ! 50 kpc
 levelmin=7                ! 50 kpc / 2^7  = 390 pc resolution 
-levelmax=10               ! 50 kpc / 2^11 =  25 pc resolution             
+levelmax=11               ! 50 kpc / 2^11 =  25 pc resolution             
 ngridmax=200000
 npartmax=1000000
 /
