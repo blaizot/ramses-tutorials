@@ -16,6 +16,13 @@ We recommend that the new users start with the **RAMSES Fundamentals**
 tutorial. 
 
 .. toctree::
+   :caption: Setting up
+   :maxdepth: 1
+
+   Setup/CBP.md
+   Setup/laptop.md
+
+.. toctree::
    :caption: Tutorials
    :maxdepth: 1
 
@@ -24,13 +31,6 @@ tutorial.
    Idealised-Disc-Galaxy/tuto_disc.ipynb
    Dense-Core-Collapse/dense-core.ipynb
    Forced-Turbulence/tutorial_forced_turbulence.ipynb
-
-.. toctree::
-   :caption: Setting up
-   :maxdepth: 1
-
-   Setup/CBP.md
-   Setup/laptop.md
 
 .. note::
    You are welcome and encouraged to create new tutorials and share
