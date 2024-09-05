@@ -3,6 +3,7 @@
 For the 1st edition of the RAMSES school, participants are granted access to the Centre Blaise Pascal ([CBP](http://www.cbp.ens-lyon.fr/doku.php?id=accueil:cbp)) machine.
 
 The following instructions will guide you to obtain, compile and run the RAMSES code in parallel on the CBP machine, but they can be adapted for the use of any other HPC environment. If you want to use your own laptop, you can refer to the **Instructions to get started on your laptop** section.
+<!-- Make link instead of bold text-->
 
 ## Getting RAMSES
 
