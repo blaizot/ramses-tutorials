@@ -1,22 +1,19 @@
 # Instructions to get started on your laptop
 
-The following (non exhaustive!) set of instructions will guide you to obtain, compile and run the RAMSES code in parallel on your laptop. To use RAMSES on a cluster and an HPC environment, refer to the **Instructions to get started on the CBP machine** section. 
-<!-- Make link instead of bold text-->
+The following (non exhaustive!) set of instructions will guide you to obtain, compile and run the RAMSES code in parallel on your laptop. To use RAMSES on a cluster and an HPC environment, refer to the [Instructions to get started on the CBP machine](CBP.md) section. 
 
-
-
-Here is a summary of requirements depending on the tutorial you are following. `RAMSES`, `python` and `notebook` are necessary for all tutorials, and you should have access to at least 8 Gb of memory and 2 cores.
-<!-- Check for all tutos 8gb/2cores, this is for idealised -->
+Here is a summary of requirements depending on the tutorial you are following. [RAMSES](#Getting-RAMSES), [python](#Python) and [notebooks](#notebooks) are necessary for all tutorials, and you should have access to at least 8 Gb of memory and 2 cores. By default, we will use `mpirun -np 8` (8 cores) in the tutorials, feel free to adapt it to your setup.
+<!-- Check for all tutos 8gb/2cores, this is for idealised + adapt all runs similarly to mpirun -np 8. -->
 <div align="center">
 
-Tutorial name           | yt | Osyris | DICE  | ffmpeg 
+Tutorial name           | [yt](#The-yt-project) | [Osyris](#osyris) | [DICE](#DICE)  | [ffmpeg](#ffmpeg) 
 ----------------------  | -- | ------ | ----- | ------
 Idealised disc          | ✔  | ✖      | ✔     | ✔     
 Cosmological simulation | ✔  | ✖      | ✖     | ✖     
 Dense core collapse     | ✖  | ✔      | ✖     | ✖     
 Turbulent box           | ✖  | ✔      | ✖     | ✖     
 </div>
-<!-- Make text link to the sections, cp paste to CBP version. -->
+
 
 ## 1. Getting RAMSES
 
@@ -29,7 +26,7 @@ You will need a **fortran compiler** to compile RAMSES, along with some version 
 We recommend installing recent versions of the GNU fortran compiler `gfortran` [(link)](https://gcc.gnu.org/fortran/) and `openmpi` [(link)](https://www.open-mpi.org/). 
 
 
-## 3. Python - data visualisation
+## 3. Data visualisation
 ### 3.1 Python
 For all tutorials, you will need to install python and several of its modules. To directly install Python and several common modules, you can install Anaconda or Miniconda (lighter version). For simplicity, we recommend the use of a [conda](https://www.anaconda.com) distribution. Otherwise, replace `conda install module` by `pip install module` in the following commands.
 
@@ -65,7 +62,7 @@ To install the packages needed, you need a package manager such as `apt` for Ubu
 On Note that in most cases, the use of sudo and apt is not allowed on supercomputers. Instead, load modules when already installed on the machine (e.g. for compilers), download and install packages with `git` and `make` when appliable, or contact a member of the supercomputer support service. -->
 
 
-### 4.1 FFMPEG - processing images
+### 4.1 FFMPEG
 
 [ffmpeg](https://www.ffmpeg.org) will be used for processing and assembling images into a movie. To download ffmpeg and install ffmpeg, do as follows:
 
@@ -81,7 +78,26 @@ make
 make install
 ``` -->
 
-### 4.2 [DICE](https://bitbucket.org/vperret/dice/src/master/) - initial conditions.  
+
+<!-- Try to render both side by side.
+<table>
+<tr>
+  <td>Through package manager</td>
+  <td>Manually</td>
+</tr>
+<tr>
+  <td>
+    <pre><code class="language-bash">sudo apt install ffmpeg</code></pre>
+  </td>
+  <td>
+    <pre><code class="language-bash">git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg<br>cd ffmpeg<br>./configure<br>make<br>make install</code></pre>
+  </td>
+</tr>
+</table> -->
+
+
+
+### 4.2 [DICE](https://bitbucket.org/vperret/dice/src/master/)
 [DICE](https://bitbucket.org/vperret/dice/src/master/) is used to generate initial conditions for galactic disk. To install DICE, you first need to install CMake, GSL and FFTW3. We do so and verify their proper installation with:
 ```bash
 sudo apt install gsl cmake fftw        
