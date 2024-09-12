@@ -61,13 +61,13 @@ z_ave=0.1           ! Initial metallicity
 
 &SF_PARAMS
 n_star=1.0                      ! Density threshold for star formation
-eps_star=0.02                   ! Star formation efficiency (% of free-fall time)
+eps_star=0.1                    ! Star formation efficiency (% of free-fall time)
 T2_star=10                      ! Cooling floor (in Kelvin)
 /
 
 &FEEDBACK_PARAMS
 yield=0.1                       ! SN metal yield
-eta_sn=0.1                      ! Stellar pop mass fraction that goes SN
+eta_sn=0.2                      ! Stellar pop mass fraction that goes SN
 t_sne=3.                        ! Stellar particle age at which to go SN, in Myr
 /
 

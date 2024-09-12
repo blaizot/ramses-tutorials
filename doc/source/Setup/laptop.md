@@ -2,18 +2,6 @@
 
 The following (non exhaustive!) set of instructions will guide you to obtain, compile and run the RAMSES code in parallel on your laptop. To use RAMSES on a cluster and an HPC environment, refer to the [Instructions to get started on the CBP machine](CBP.md) section. 
 
-Here is a summary of requirements depending on the tutorial you are following. [RAMSES](#Getting-RAMSES), [python](#Python) and [notebooks](#notebooks) are necessary for all tutorials, and you should have access to at least 8 Gb of memory and 2 cores. By default, we will use `mpirun -np 8` (8 cores) in the tutorials, feel free to adapt it to your setup.
-<!-- Check for all tutos 8gb/2cores, this is for idealised + adapt all runs similarly to mpirun -np 8. -->
-<div align="center">
-
-Tutorial name           | [yt](#The-yt-project) | [Osyris](#osyris) | [DICE](#DICE)  | [ffmpeg](#ffmpeg) 
-----------------------  | -- | ------ | ----- | ------
-Idealised disc          | ✔  | ✖      | ✔     | ✔     
-Cosmological simulation | ✔  | ✖      | ✖     | ✖     
-Dense core collapse     | ✖  | ✔      | ✖     | ✖     
-Turbulent box           | ✖  | ✔      | ✖     | ✖     
-</div>
-
 
 ## 1. Getting RAMSES
 
@@ -62,66 +50,8 @@ To install the packages needed, you need a package manager such as `apt` for Ubu
 On Note that in most cases, the use of sudo and apt is not allowed on supercomputers. Instead, load modules when already installed on the machine (e.g. for compilers), download and install packages with `git` and `make` when appliable, or contact a member of the supercomputer support service. -->
 
 
-### 4.1 FFMPEG
-
-[ffmpeg](https://www.ffmpeg.org) will be used for processing and assembling images into a movie. To download ffmpeg and install ffmpeg, do as follows:
-
-  ```bash
-  sudo apt install ffmpeg
-  ```
-<!-- No need to make it complicated
-```bash
-git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
-cd ffmpeg
-./configure
-make
-make install
-``` -->
-
-
-<!-- Try to render both side by side.
-<table>
-<tr>
-  <td>Through package manager</td>
-  <td>Manually</td>
-</tr>
-<tr>
-  <td>
-    <pre><code class="language-bash">sudo apt install ffmpeg</code></pre>
-  </td>
-  <td>
-    <pre><code class="language-bash">git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg<br>cd ffmpeg<br>./configure<br>make<br>make install</code></pre>
-  </td>
-</tr>
-</table> -->
-
-
-
-### 4.2 [DICE](https://bitbucket.org/vperret/dice/src/master/)
-[DICE](https://bitbucket.org/vperret/dice/src/master/) is used to generate initial conditions for galactic disk. To install DICE, you first need to install CMake, GSL and FFTW3. We do so and verify their proper installation with:
-```bash
-sudo apt install gsl cmake fftw        
-gsl-config --version        
-cmake --version        
-brew list | grep fftw        
-```
-
-<!-- You can directly go to the "Compile & install section" of the [DICE instructions webpage](https://bitbucket.org/vperret/dice/wiki/Compile%20&%20Install), or simply follow the instructions below. -> Useless?? -->
-Then, install DICE with:
-```bash
-git clone https://bitbucket.org/vperret/dice
-cd dice
-mkdir build
-cd build
-cmake ..
-make
-make install
-```
-If you encounter any problem, please refer to the [DICE instructions for installation](https://bitbucket.org/vperret/dice/wiki/Compile%20&%20Install). Depending on your C compiler version, you may need the following 'extra' parameters with cmake when installing: `cmake .. -DCMAKE_C_FLAGS="-fcommon"`. After installation, you should obtain a `dice` directory which contains the executable in `dice/build/bin/dice`.
-
-
-<!-- I think this is WAY too much. We give them the simple version that works on all machines with known OS, otherwise they go check on internet, not hard.
-### CMAKE
+I think this is WAY too much. We give them the simple version that works on all machines with known OS, otherwise they go check on internet, not hard.
+### 4.1 CMAKE
 
 You can use apt or brew to install CMake:
 
@@ -135,7 +65,7 @@ And verify its proper installation with:
 cmake --version
 ```
 
-### FFTW3
+### 4.2 FFTW3
 
 - Download the source code of the library from the [fftw website](http://www.fftw.org)
 - Open a terminal and expand the gzipped archive
@@ -165,7 +95,7 @@ And verify its proper installation with:
 brew list | grep fftw
 ```
 
-### GSL
+### 4.3 GSL
 
 - Download the source code of the library from the [GSL website](lhttp://www.gnu.org/software/gsl/)
 
@@ -194,31 +124,11 @@ And verify its proper installation with:
 gsl-config --version
 ```
 
-### Brew (Mac)
-
-If you want to install the package manager brew (Mac), see [their website](https://brew.sh) and run:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Then run the command indicted in your terminal, that looks like:
-```bash
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/yourusername/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-
-Finally, install brew:
-```bash
-brew install gsl cmake fftw
-``` -->
-
-<!-- Internet, first link gives the answer, very easy, too much here.
-### Git
+### 4.4 Git
 
 Should you need to install git on your machine, you can refer to the following [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). -->
 
-<!-- Same, way too much: they should use https. If they know what they're doing they can use ssh. Not the appropriate place to explain it. We want a minimal working setup. They will be free to pull (public repo) and I think free tomerge request, but they shouldn't, they should raise issues and we fix them. Feels like a reminder for you, not something for the tuto.
+Same, way too much: they should use https. If they know what they're doing they can use ssh. Not the appropriate place to explain it. We want a minimal working setup. They will be free to pull (public repo) and I think free tomerge request, but they shouldn't, they should raise issues and we fix them. Feels like a reminder for you, not something for the tuto.
 ### Cloning via HTTPS versus SSH
 
 Codes hosted on Bitbucket or GitHub can be cloned via SSH or HTTPS, which are two different secure protocols for cloning repositories.
@@ -247,4 +157,4 @@ You can specify a file location for the key and a passphrase for extra security.
 - Add your SSH public key (`id_rsa.pub`) to GitHub or BitBucket: in the web portal, sign in, navigate to Settings > SSH and GPG keys > New SSH key, and paste your public key. You can print the content of the public key with (change the following with the location of your .ssh directory if needed):
 ```bash
 cat ~/.ssh/id_rsa.pub
-``` -->
+```
