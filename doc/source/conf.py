@@ -97,3 +97,10 @@ simplepdf_vars = {
     'cover-bg': primary_color_rgb_string,
     'top-left-content': 'counter(page)',
 }
+
+latex_elements = {
+    'preamble': r'''
+    \usepackage[utf8]{inputenc}
+    \DeclareUnicodeCharacter{2006}{\hspace{0.16667em}}
+    '''
+}
