@@ -1,1 +1,1 @@
-mpirun -np 16 ../../../ramses/bin/ramses-dice3d setup.nml > run.log &
+mpirun -np 8 ../ramses/bin/ramses-dice3d setup.nml > run.log &
