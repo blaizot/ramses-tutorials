@@ -58,7 +58,7 @@ instructions below should work out.
 ```
 git clone https://bitbucket.org/ohahn/music.git
 cd music
-make CC=$CONDA_PREFIX/bin/clang++ LPATHS="-L$CONDA_PREFIX/lib -Wl,-rpath,$(CONDA_PREFIX)/lib" CPATHS="-I$CONDA_PREFIX/include -I./src" HAVEHDF5=no
+make CC=$CONDA_PREFIX/bin/clang++ LPATHS="-L$CONDA_PREFIX/lib -Wl,-rpath,$CONDA_PREFIX/lib" CPATHS="-I$CONDA_PREFIX/include -I./src" HAVEHDF5=no
 ```
 ### DICE 
 
