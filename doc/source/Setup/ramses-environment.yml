@@ -3,8 +3,8 @@ channels:
   - conda-forge
 dependencies:
   - gfortran
-  - clang_osx-64=12.*     ## latest versions of C++ compilers do not work with MUSIC 
-  - clangxx_osx-64=12.*  
+  - clang
+  - llvm-openmp
 #  - gcc_linux-64=12.*
 #  - gxx_linux-64=12.*
   - openmpi
