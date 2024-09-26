@@ -50,16 +50,26 @@ pip install osyris
 
 ## Compiling third-party libraries
 
-### MUSIC
+### MUSIC (v2)
 In some tutorials (Cosmological-Volumes), we will use the code
-MUSIC. This can be tricky to compile with the conda setup above. The
+MUSIC (v2). This can be tricky to compile with the conda setup above. The
 instructions below should work out. 
 
 ```
-git clone https://bitbucket.org/ohahn/music.git
-cd music
-make CC=$CONDA_PREFIX/bin/clang++ LPATHS="-L$CONDA_PREFIX/lib -Wl,-rpath,$CONDA_PREFIX/lib" CPATHS="-I$CONDA_PREFIX/include -I./src" HAVEHDF5=no
+git clone https://github.com/cosmo-sims/MUSIC2.git
+cd MUSIC2
+mkdir build
+cd build
+ccmake ..
 ```
+This last command will open an interactive session where you need to
+enter `c` to start the configuration, `e` to exit the log, `c` again,
+`e` again, and the `g` to generate the Makefile. Once this is done
+successfully, type:
+```
+make -j
+```
+
 ### DICE 
 
 
