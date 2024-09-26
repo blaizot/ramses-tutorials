@@ -2,6 +2,7 @@ name: ramses-env
 channels:
   - conda-forge
 dependencies:
+  - pkg-config
   - gfortran
   - clang
   - llvm-openmp

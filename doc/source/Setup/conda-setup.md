@@ -63,8 +63,7 @@ cd build
 ccmake ..
 ```
 This last command will open an interactive session where you need to
-enter `c` to start the configuration, `e` to exit the log, `c` again,
-`e` again, and the `g` to generate the Makefile. Once this is done
+enter `c` to start the configuration, `e` to exit the log, `c` again, and then `g` to generate the Makefile. Once this is done
 successfully, type:
 ```
 make -j
