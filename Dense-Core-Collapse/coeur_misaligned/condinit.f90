@@ -53,7 +53,7 @@ subroutine condinit(x,u,dx,nn)
 
  ! UL added this 01/07/24
  ! Line to add for rotation misalignment 
- if(theta_mag.ne.0.0d0) then
+ if(theta_mag.eq.0.0d0) then
    theta_mag_radians= theta_mag/180.0d0*pi
    rot_M(1,1:3) = (/cos(theta_mag_radians),0.0d0,-sin(theta_mag_radians)/)
    rot_M(2,1:3) = (/0.0d0,1.0d0,0.0d0/)
