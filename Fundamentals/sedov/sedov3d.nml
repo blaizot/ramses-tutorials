@@ -1,0 +1,71 @@
+&RUN_PARAMS 
+cosmo=.false.
+pic=.true.
+poisson=.false. ! No self-gravity
+hydro=.true.
+nrestart=0
+nremap=20
+nsubcycle=10*2
+ncontrol=1
+rt=.false.
+/
+
+&OUTPUT_PARAMS
+tend=20.
+delta_tout=0.2
+/
+
+&INIT_PARAMS
+nregion=2
+region_type(1)='square'
+region_type(2)='point'
+x_center=0.5, 0.5
+y_center=0.5, 0.5
+z_center=0.5, 0.5
+length_x=10.0, 0.
+length_y=10.0, 0.
+length_z=10.0, 0.
+exp_region=10.0, 0.
+d_region=1d-1, 0.	
+u_region=0.0, 0.0						
+v_region=0.0, 0.0     
+p_region= 8.6987186e-10, 8.57801264e-7	! 8 K and 10^51 ergs
+/
+
+&AMR_PARAMS
+levelmin=6
+levelmax=7
+ngridmax=200000
+npartmax=500000
+boxlen=1                   ! 1 kpc
+/
+
+!&POISSON_PARAMS 
+!epsilon=1e-4
+!/
+
+&UNITS_PARAMS
+units_density=1.66000d-24
+units_time=3.1556926d13		! 1 Myr in seconds
+units_length=3.08568025d21 	! 1 kpc in cm
+/
+
+&COOLING_PARAMS
+cooling=.false.
+metal=.false.
+/
+
+&HYDRO_PARAMS
+gamma=1.4
+courant_factor=0.8
+slope_type=0
+pressure_fix=.true.
+beta_fix=0.5
+riemann='llf'  ! or 'exact' or 'hll' or 'hllc' or 'acoustic'
+/
+
+&REFINE_PARAMS
+err_grad_p=0.1
+interpol_type=0
+interpol_var=1
+/
