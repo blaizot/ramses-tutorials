@@ -1,0 +1,16 @@
+name: ramses-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - numpy
+  - astropy
+  - matplotlib
+  - jupyter
+  - scipy
+  - f90nml
+  - yt
+
+
+
