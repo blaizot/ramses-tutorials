@@ -1,42 +1,80 @@
-# Instructions to get started on the CBP machine
+# Instructions to get started on the CBP machines
 
-For the 1st edition of the RAMSES school, participants are granted access to the Centre Blaise Pascal ([CBP](http://www.cbp.ens-lyon.fr/doku.php?id=accueil:cbp)) machine.
+For the 1st edition of the RAMSES school, participants are hosted by the Centre Blaise Pascal ([CBP](http://www.cbp.ens-lyon.fr/doku.php?id=accueil:cbp)) and given access to individual desktop machines and to a more powerful cluster. 
 
-The following instructions will guide you to obtain, compile and run the RAMSES code in parallel on the CBP machine, but they can be adapted for the use of any other HPC environment. If you want to use your own laptop, you can refer to the **Instructions to get started on your laptop** section.
-<!-- Make link instead of bold text-->
+These machines are provided with a number of installed softwares and libraries, but we will need a few extra things (python libraries) to go through the turorials. Please follow the instructions below in order to be able to execute the tutorials on the CBP servers. 
 
-## Getting RAMSES
+## 1. Install miniconda
 
-In order to **obtain and compile the RAMSES code**, please follow the first steps of the documentation at [this link](https://ramses-organisation.readthedocs.io/en/latest/wiki/Start.html). You will also find information about the content of the RAMSES repository and some (old) instructions about compiling the code.
+Install miniconda by running the following commands in a new terminal:
+```
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh
+```
+After this, **close the terminal**.
 
-## Compilers
-
-You will need a **fortran compiler** to compile RAMSES, along with some version of **MPI** if you want to run RAMSES in parallel.
-
-On a supercomputer, fortran compilers and MPI libraries will generally be installed and you need to find out how to use them. Often, this is done by loading modules. Once logged to the supercomputer, you can check what are the possible modules already installed by running the following command in the terminal:
-
-```bash
-module spider
+## 2. Download the ramses tutorials repository
+Open a new terminal and type the following:
+```
+git clone https://github.com/blaizot/ramses-tutorials.git
 ```
 
-You can then load the modules needed via:
+## 3. Install required python packages
 
-```bash
-module load name-of-the-module
+In order to install all packages we need, type the following:
+```
+cd ramses-tutorials/doc/source/Setup
+conda update -n base conda
+conda env create -f ramses-environment-cbp.yml
+```
+Now, the conda environment for the ramses tutorials is created, as you can see by typing `conda env list`. In order to **use** the ramses environment, you have to **activate** it by running following command:
+```
+conda activate ramses-env
+```
+**Note that this has to be done in any new terminal.** (You may add this line to your .bashrc file if you are familiar with this).  
+
+Finish the installation with some additional packages best installed with pip by running the following commands:
+```
+pip install yt_astro_analysis
+pip install colossus
+pip install osyris
 ```
 
-On the CBP machine, you can simply copy the following lines to load the GCC (gfortran) compiler and OpenMPI:
+## 4. Compiling third-party libraries
 
-```bash
-module purge
-module use /applis/PSMN/debian11/Cascade/modules/all
-module load OpenMPI/4.1.1-GCC-10.3.0
+Some tutorials will use extra codes in order to generate initial conditions for RAMSES experiments. Follow the instructions below to install them according to your needs. 
+
+### MUSIC (v2)
+In some tutorials (Cosmological-Volumes), we will use the code
+MUSIC (v2). Install MUSIC2 as follows, in some terminal:
+```
+git clone https://github.com/cosmo-sims/MUSIC2.git
+cd MUSIC2
+mkdir build
+cd build
+ccmake ..
+```
+This last command will open an interactive session where you need to
+enter `c` to start the configuration, `e` to exit the log, `c` again, and then `g` to generate the Makefile. Once this is done
+successfully, type:
+```
+make -j
 ```
 
-**IMPORTANT NOTE: I (Marion) copied what I use on the PSMN, this might need to be changed for the CBP machine?**
+### DICE
+Some tutorials (e.g. Idealised galaxies) will use [DICE](https://bitbucket.org/vperret/dice/src/master/). Install this by running the following lines in a terminal.
+```
+git clone https://bitbucket.org/vperret/dice
+cd dice
+mkdir build
+cd build
+cmake -DCMAKE_C_FLAGS=-fcommon ..
+make
+make install
+```
 
-## Environment and data visualisation with python
 
-Explain here how to create a python environment and install the packages needed for the tutorials?
-
-We use notebooks for these tutorials (`.ipynb` extensions) to use both Python code and Markdown in the same file. Notebook use kernels to run code (upper right of the visualiser). To use the Notebook, you can run a cell with <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, navigate between cells with <kbd>↑</kbd> and <kbd>↓</kbd>, create new cells above (resp. below) with <kbd>A</kbd> (resp. <kbd>B</kbd>), and delete them with <kbd>D</kbd><kbd>D</kbd>
