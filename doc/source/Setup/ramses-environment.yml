@@ -23,6 +23,7 @@ dependencies:
   - yt
   - fftw
   - gsl
+  - ffmpeg
 
 
 

@@ -19,9 +19,8 @@ tutorial.
    :caption: Setting up
    :maxdepth: 1
 
+   Setup/general_requirements.md
    Setup/CBP.md
-   Setup/laptop.md
-   Setup/conda-setup.md
 
 .. toctree::
    :caption: Tutorials
@@ -30,8 +29,8 @@ tutorial.
    Fundamentals/tutorial.ipynb
    Cosmological-Volume/tutorial.ipynb
    Idealised-Disc-Galaxy/tuto_disc.ipynb
-   Dense-Core-Collapse/dense-core.ipynb
    Forced-Turbulence/tutorial_forced_turbulence.ipynb
+   Dense-Core-Collapse/dense-core.ipynb
 
 .. note::
    You are welcome and encouraged to create new tutorials and share
