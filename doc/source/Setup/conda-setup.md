@@ -29,7 +29,7 @@ After this, close the terminal.
 
 ## Installing compilers and python packages 
 
-In order to install all packages that are required by the turorials, open a new terminal and type the following commands in your rascas-tutorials directory:
+In order to install all packages that are required by the turorials, open a new terminal and type the following commands in your ramses-tutorials directory:
 ```
 cd doc/source/Setup
 conda update -n base conda
