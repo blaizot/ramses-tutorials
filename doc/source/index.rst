@@ -19,9 +19,9 @@ tutorial.
    :caption: Setting up
    :maxdepth: 1
 
-   Setup/conda-setup.md
    Setup/CBP.md
    Setup/laptop.md
+   Setup/conda-setup.md
 
 .. toctree::
    :caption: Tutorials
