@@ -1,16 +1,16 @@
 
 Credits
 ------
-Many persons contributed to writing and reviewing the tutorials. The main
-authors are listed below. 
+The first series of RAMSES tutorials were created for the *RAMSES school* organised by the `SNO RAMSES <https://ramses.cnrs.fr/>`_ in November 2024, in Lyon. The organisation of the school and the development of the tutorials involved many contributions that we list below. 
 
-.. csv-table:: 
-   :header: "Tutorial", "Author(s)"
-   :align: center
+**General organization and conception of the school**: **J. Blaizot (Coord.)**, N. Brucy, B. Commerçon, Y. Dubois, M. Farcy, A. Le Brun, P. Ocvirk, M. Rey, J. Rosdahl, C. Stahl, M. Trebitsch.
 
-   "RAMSES Fundamentals", "J. Rosdahl, B. Commercon"
-   "Full cosmological volume", "J. Blaizot, C. Stahl"
-   "Idealised disc galaxy", "J. Rosdahl, M. Rey, M. Farcy"
-   "Turbulent box tutorial", "N. Brucy, B. Commercon"
-   "Dense core collapse with RAMSES", "U. Lebreuilly"
-	    
+**Development of pedagogical contents**: 
+
+- *RAMSES Fundamentals*: **J. Rosdahl & B. Commerçon** 
+- *Dense Core Collapse*: **U. Lebreuilly** 
+- *Forced Turbulence*: **N. Brucy,B. Commerçon** 
+- *Idealized Disk Galaxy*: **J. Rosdahl, M. Rey, M. Farcy** 
+- *Full Cosmological Volume*: **J. Blaizot & C. Stahl** 
+
+**Detailed review and tests of the tutorials**: J. Blaizot, N. Brucy, M. Farcy, M. Rey, M. Trebitsch.
