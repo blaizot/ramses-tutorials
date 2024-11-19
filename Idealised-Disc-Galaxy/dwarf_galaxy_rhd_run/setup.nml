@@ -98,7 +98,7 @@ rt_courant_factor=0.8		! courant number for RT timesteps
 rt_c_fraction=0.001	        ! fraction of actual lightspeed set to RT lightspeed
 rt_nsubcycle=500
 rt_otsa=.true.                  ! On-the-spot approximation
-sed_dir='../../SED/bc03/'
+sed_dir='../SED/bc03/'
 /
 
 &RT_GROUPS
