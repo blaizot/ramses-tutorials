@@ -9,7 +9,7 @@ The first series of RAMSES tutorials were created for the *RAMSES school* organi
 
 - *RAMSES Fundamentals*: **J. Rosdahl & B. Commerçon** 
 - *Dense Core Collapse*: **U. Lebreuilly** 
-- *Forced Turbulence*: **N. Brucy,B. Commerçon** 
+- *Forced Turbulence*: **B. Commerçon, N. Brucy,** 
 - *Idealized Disk Galaxy*: **J. Rosdahl, M. Rey, M. Farcy** 
 - *Full Cosmological Volume*: **J. Blaizot & C. Stahl** 
 
