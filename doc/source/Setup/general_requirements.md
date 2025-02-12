@@ -134,7 +134,7 @@ Finish the installation with some additional packages best installed with pip by
 ```
 pip install yt_astro_analysis
 pip install colossus
-pip install osyris
+pip install osyris==2.11
 ```
 ### 2.4. Compiling third-party libraries
 
