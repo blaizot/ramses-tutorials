@@ -54,7 +54,7 @@ scheme='muscl'
 riemann='llf'
 /
 
-&PHYSICS_PARAMS
+&SF_PARAMS
 n_star=1d-13
 T2_star=4.55
 g_star=0.6666667
