@@ -49,3 +49,7 @@ sphinx-build -M latexpdf source  build
 ```
 Again, please make sure this works before pushing. 
 
+## Credits
+
+If you provide a new tutorial, you should add your name and
+contribution to the **Credits section** by editing the file `doc/source/credits.rst`.

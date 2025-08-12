@@ -42,3 +42,12 @@ tutorial.
    :maxdepth: 1
 
    Dev/readme.md
+
+.. toctree::
+   :caption: Credits
+   :maxdepth: 1
+
+   credits.rst
+
+
+   
